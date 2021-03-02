@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_02_051533) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.boolean "is_verified", default: true, null: false
+    t.integer "wish_count", default: 3
+    t.boolean "is_verified", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
