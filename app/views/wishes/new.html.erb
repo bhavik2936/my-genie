@@ -1,0 +1,12 @@
+<h1>New Wish</h1>
+
+<%= form_for [@user, @wish] do |form| %>
+  <div>
+    <%= form.label :wish_statement %><br>
+    <%= form.text_field :wish_statement %>
+  </div>
+
+  <div>
+    <%= form.submit "Make a Wish" %>
+  </div>
+<% end %>
