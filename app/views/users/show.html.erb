@@ -3,3 +3,7 @@
 <p><%= @user.email %></p>
 
 <%= render "wishes/index" %>
+
+<% unless @user.wish_count == 0 %>
+  <%= link_to "New Wish", new_user_wish_path(@user) %>
+<% end %>

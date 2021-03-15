@@ -14,12 +14,21 @@ class WishesController < ApplicationController
 
   def create
     @wish = @user.wishes.build(wish_params)
-    
-    if @wish.save
-      redirect_to user_path(@user)
-    else
-      render :new
+
+    ActiveRecord::Base.transaction do
+      unless @user.wish_count == 0
+        make_wish
+        deduct_wish_count
+        
+        redirect_to user_path(@user)
+      else
+        flash[:alert] = "You have used all your wishes!"
+        render :new
+      end
     end
+    
+  rescue
+    render :new
   end
 
   private
@@ -29,5 +38,13 @@ class WishesController < ApplicationController
 
     def set_user
       @user = User.find(params[:user_id])
+    end
+    
+    def make_wish
+      @wish.save!
+    end
+    
+    def deduct_wish_count
+      @user.update!(wish_count: @user.wish_count-1)
     end
 end
