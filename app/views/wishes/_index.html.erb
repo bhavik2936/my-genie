@@ -1,3 +1,11 @@
-<% @wishes.each do |wish| %>
-  <li><%= wish.wish_statement %></li>
-<% end %>
+<div class="row">
+  <div class="col-md-8 col-10 mx-auto border rounded p-3">
+    <div class="h5">Your requested Wishes</div>
+    <% @wishes.each do |wish| %>
+      <li><s><%= wish.wish_statement %></s></li>
+    <% end %>
+    <% @user.wish_count.times do %>
+      <li></li>
+    <% end %>
+  </div>
+</div>

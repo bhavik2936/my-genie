@@ -1,9 +1,18 @@
-<h1><%= @user.name %></h1>
+<div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>Master: <%= @user.name %></h1>
+    </div>
+  </div>
+  
+  <div class="row m-2">
+    <div class="col-12 text-center">
+      You can’t wish for more wishes. Three is enough.
+      <% unless @user.wish_count == 0 %>
+        Ready to <%= link_to "make a Wish", new_user_wish_path(@user) %>?
+      <% end %>
+    </div>
+  </div>
 
-<p><%= @user.email %></p>
-
-<%= render "wishes/index" %>
-
-<% unless @user.wish_count == 0 %>
-  <%= link_to "New Wish", new_user_wish_path(@user) %>
-<% end %>
+  <%= render "wishes/index" %>
+</div>
