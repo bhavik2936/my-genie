@@ -13,7 +13,13 @@
   <body>
     <%= render "layouts/navbar" %>
     <div class="container">
-    <%= yield %>
+    <% if notice %>
+      <div class="errors col-md-8 col-10 row mx-auto"><div class="col-12 my-3 alert alert-info"><%= notice %></div></div>
+    <% end %>
+    <% if alert %>
+      <div class="errors col-md-8 col-10 row mx-auto"><div class="col-12 my-3 alert alert-warning"><%= alert %></div></div>
+    <% end %>
+      <%= yield %>
     </div>
   </body>
 </html>
