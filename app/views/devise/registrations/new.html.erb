@@ -1,29 +1,47 @@
-<h2>Sign up</h2>
+<div>
+  <div class="row"><h1 class="mx-auto my-2">Who summons me?</h1></div>
+  <div class="row"><p class="mx-auto my-2 text-center">Are you looking at me? Did you rub my lamp?
+    Did you wake me up? Did you bring me here? And all of a sudden you're walking out on me?
+    I don't think so. Not right now! YOU'RE GETTIN' YOUR WISHES, SO <strong>SIDDOWN</strong>!</p></div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="row my-2">
+      <div class="col-md-8 col-10 row mx-auto">
+        <%= f.label :name, class: "col-4" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-8" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="row my-2">
+      <div class="col-md-8 col-10 row mx-auto">
+        <%= f.label :email, class: "col-4" %>
+        <%= f.email_field :email, autocomplete: "email", class: "col-8" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="row my-2">
+      <div class="col-md-8 col-10 row mx-auto">
+        <%= f.label :password, class: "col-4" %>
+        <%= f.password_field :password, autocomplete: "new-password", class: "col-8" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="row my-2">
+      <div class="col-md-8 col-10 row mx-auto">
+        <%= f.label :password_confirmation, class: "col-4" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-8" %>
+      </div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="row">
+      <%= f.submit "Identify me with above details", class: "mx-auto" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

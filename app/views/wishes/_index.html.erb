@@ -4,7 +4,7 @@
     <% @wishes.each do |wish| %>
       <li><s><%= wish.wish_statement %></s></li>
     <% end %>
-    <% @user.wish_count.times do %>
+    <% current_user.wish_count.times do %>
       <li></li>
     <% end %>
   </div>
