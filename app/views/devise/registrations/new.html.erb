@@ -1,8 +1,8 @@
 <div>
-  <div class="row"><h1 class="mx-auto my-2">Who summons me?</h1></div>
-  <div class="row"><p class="mx-auto my-2 text-center">Are you looking at me? Did you rub my lamp?
+  <div class="row"><div class="col-12 my-2 text-center h1">Who summons me?</div></div>
+  <div class="row"><div class="col-12 my-2 text-center">Are you looking at me? Did you rub my lamp?
     Did you wake me up? Did you bring me here? And all of a sudden you're walking out on me?
-    I don't think so. Not right now! YOU'RE GETTIN' YOUR WISHES, SO <strong>SIDDOWN</strong>!</p></div>
+    I don't think so. Not right now! YOU'RE GETTIN' YOUR WISHES, SO <strong>SIDDOWN</strong>!</div></div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
