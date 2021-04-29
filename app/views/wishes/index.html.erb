@@ -1,0 +1,28 @@
+<div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <h1>Master: <%= current_user.name %></h1>
+    </div>
+  </div>
+
+  <div class="row m-2">
+    <div class="col-12 text-center">
+      You can’t wish for more wishes. Three is enough.
+      <% unless current_user.wish_count == 0 %>
+        Ready to <%= link_to "make a Wish", new_user_wish_path(current_user) %>?
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 col-10 mx-auto border rounded p-3">
+      <div class="h5">Your requested Wishes</div>
+      <% @wishes.each do |wish| %>
+      <li><s><%= wish.wish_statement %></s></li>
+      <% end %>
+      <% current_user.wish_count.times do %>
+      <li></li>
+      <% end %>
+    </div>
+  </div>
+</div>

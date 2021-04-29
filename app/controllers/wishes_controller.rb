@@ -2,6 +2,7 @@ class WishesController < ApplicationController
   before_action :set_user, only: [:new, :create]
 
   def index
+    @wishes = Wish.where(user_id: current_user.id)
   end
 
   def show
@@ -19,14 +20,14 @@ class WishesController < ApplicationController
       unless @user.wish_count == 0
         make_wish
         deduct_wish_count
-        
+
         redirect_to user_path(@user)
       else
         flash[:alert] = "You have used all your wishes!"
         render :new
       end
     end
-    
+
   rescue
     render :new
   end
@@ -39,11 +40,11 @@ class WishesController < ApplicationController
     def set_user
       @user = User.find(params[:user_id])
     end
-    
+
     def make_wish
       @wish.save!
     end
-    
+
     def deduct_wish_count
       @user.update!(wish_count: @user.wish_count-1)
     end

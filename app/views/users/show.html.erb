@@ -1,18 +1,21 @@
 <div>
+  <div class="row"><div class="col-12 text-center h1">Hello Master!</div></div>
+  <div class="row m-2"><div class="col-12 text-center">This many information I have about you!</div></div>
+
   <div class="row">
-    <div class="col-12 text-center">
-      <h1>Master: <%= current_user.name %></h1>
+    <div class="col-md-8 col-10 mx-auto">
+      <div class="row my-md-2 my-3">
+        <div class="col-md-6">Name</div>
+        <div class="col-md-6 font-weight-bold"><%= current_user.name %></div>
+      </div>
+      <div class="row my-md-2 my-3">
+        <div class="col-md-6">Email</div>
+        <div class="col-md-6 font-weight-bold"><%= current_user.email %></div>
+      </div>
+      <div class="row my-md-2 my-3">
+        <div class="col-md-6">Wish Left</div>
+        <div class="col-md-6 font-weight-bold"><%= current_user.wish_count %></div>
+      </div>
     </div>
   </div>
-
-  <div class="row m-2">
-    <div class="col-12 text-center">
-      You can’t wish for more wishes. Three is enough.
-      <% unless current_user.wish_count == 0 %>
-        Ready to <%= link_to "make a Wish", new_user_wish_path(current_user) %>?
-      <% end %>
-    </div>
-  </div>
-
-  <%= render "wishes/index" %>
 </div>
