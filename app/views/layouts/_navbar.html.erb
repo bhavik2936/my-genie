@@ -12,8 +12,8 @@
           Wish
         </a>
         <div class="dropdown-menu" aria-labelledby="wishDropdown">
-          <%= link_to "My Wishes", user_wishes_path(current_user), class: "dropdown-item" %>
-          <%= link_to "New Wish", new_user_wish_path(current_user), class: "dropdown-item" %>
+          <%= link_to "My Wishes", wishes_path, class: "dropdown-item" %>
+          <%= link_to "New Wish", new_wish_path, class: "dropdown-item" %>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="<%= %>">Genie's freedom</a>
         </div>
@@ -28,7 +28,7 @@
           Account
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown">
-          <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "Profile", user_path, class: "dropdown-item" %>
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>

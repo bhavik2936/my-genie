@@ -3,13 +3,8 @@
     <div class="col-12 text-center"><h1>So, What's your Wish?</h1></div>
   </div>
 
-  <%= form_for [@user, @wish] do |form| %>
+  <%= form_for @wish do |form| %>
     <div class="errors my-3 text-danger">
-      <% if @user.errors.any? %>
-        <% @user.errors.full_messages.each do |message| %>
-          <div><%= message %></div>
-        <% end %>
-      <% end %>
       <% if @wish.errors.any? %>
         <% @wish.errors.full_messages.each do |message| %>
           <div><%= message %></div>

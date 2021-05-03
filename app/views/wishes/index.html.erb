@@ -9,7 +9,7 @@
     <div class="col-12 text-center">
       You can’t wish for more wishes. Three is enough.
       <% unless current_user.wish_count == 0 %>
-        Ready to <%= link_to "make a Wish", new_user_wish_path(current_user) %>?
+        Ready to <%= link_to "make a Wish", new_wish_path %>?
       <% end %>
     </div>
   </div>

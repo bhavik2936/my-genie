@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :wishes
-  end
+  get '/account', to: 'users#show', as: :user
+
+  resources :wishes, only: [:index, :create, :new]
 end

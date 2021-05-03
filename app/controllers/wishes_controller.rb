@@ -6,7 +6,7 @@ class WishesController < ApplicationController
   end
 
   def show
-    @wish = Wish.find_by(id: params[:id])
+    @wish = Wish.find_by(id: current_user.id)
   end
 
   def new
@@ -21,7 +21,7 @@ class WishesController < ApplicationController
         make_wish
         deduct_wish_count
 
-        redirect_to user_path(@user)
+        redirect_to authenticated_root_path
       else
         flash[:alert] = "You have used all your wishes!"
         render :new
@@ -38,7 +38,7 @@ class WishesController < ApplicationController
     end
 
     def set_user
-      @user = User.find(params[:user_id])
+      @user = User.find(current_user.id)
     end
 
     def make_wish
