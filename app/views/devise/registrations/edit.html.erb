@@ -5,47 +5,54 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="row my-2">
-      <div class="col-md-8 col-10 row mx-auto">
-        <%= f.label :email, class: "col-4" %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-8" %>
-      </div>
-    </div>
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div class="row">
-      <div class="col-md-8 col-10 row mx-auto">
-        <div class="col-md-4"></div>
-        <div class="col-md-8 col-12">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      </div>
-    </div>
-    <% end %>
-
-    <div class="row my-2">
-      <div class="col-md-8 col-10 row mx-auto">
-        <%= f.label :password, class: "col-4" %>
-        <%= f.password_field :password, autocomplete: "new-password", class: "col-8" %>
-        <i class="col-12">(leave blank if you don't want to change it)</i>
-        <% if @minimum_password_length %>
-          <em class="col-12"><%= @minimum_password_length %> characters minimum</em>
+    <div class="row mb-3">
+      <div class="col-md-8 col-10 mx-auto border rounded py-2">
+      <div class="text-center h3">Edit Profile</div>
+        <div class="row mx-0 my-2">
+          <%= f.label :name, class: "col-4" %>
+          <%= f.text_field :name, autocomplete: "name", class: "col-8" %>
+        </div>
+        <div class="row mx-0 my-2">
+          <%= f.label :email, class: "col-4" %>
+          <%= f.email_field :email, autocomplete: "email", class: "col-8" %>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="row mx-0">
+          <div class="col-md-4"></div>
+          <div class="col-md-8 col-12">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        </div>
         <% end %>
       </div>
     </div>
-    <div class="row my-2">
-      <div class="col-md-8 col-10 row mx-auto">
-        <%= f.label :password_confirmation, class: "col-4" %>
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-8" %>
+    <div class="row mb-3">
+      <div class="col-md-8 col-10 mx-auto border rounded py-2">
+        <div class="text-center h3">Change Password</div>
+        <div class="row mx-0 my-2">
+          <%= f.label :password, class: "col-4" %>
+          <%= f.password_field :password, autocomplete: "new-password", class: "col-8" %>
+          <% if @minimum_password_length %>
+            <div class="col-4"></div>
+            <em class="col-8"><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+        <div class="row mx-0 my-2">
+          <%= f.label :password_confirmation, class: "col-4" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-8" %>
+        </div>
       </div>
     </div>
+
     <div class="row my-2">
       <div class="col-md-8 col-10 row mx-auto">
         <%= f.label :current_password, class: "col-4" %>
         <%= f.password_field :current_password, autocomplete: "current-password", class: "col-8" %>
-        <i class="col-12">(we need your current password to confirm your changes)</i>
       </div>
     </div>
-
     <div class="row">
-      <%= f.submit "Update", class: "mx-auto" %>
+      <div class="col-md-8 col-10 row mx-auto">
+          <%= link_to "Back", :back, class: "mx-auto" %>
+          <%= f.submit "Update", class: "mx-auto" %>
+      </div>
     </div>
   <% end %>
 </div>
