@@ -7,7 +7,7 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.1]
       t.remove :is_verified
 
       ## Database authenticatable
-      t.change :email,              null: false, default: ""
+      t.change_null :email,               false, ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
@@ -35,9 +35,9 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.1]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-
       # Uncomment below if timestamps were not included in your original model.
-      t.change :timestamps, null: false
+      t.change_null :created_at, false
+      t.change_null :updated_at, false
     end
 
     add_index :users, :email,                unique: true
