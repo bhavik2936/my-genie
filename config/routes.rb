@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  devise_for :users, skip: [:sessions, :registrations, :passwords, :confirmations]
+  devise_for :users, skip: [:sessions, :registrations, :passwords, :confirmations], controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   as :user do
     # sessions routes
     get 'signin',             to: 'devise/sessions#new',              as: :new_user_session
